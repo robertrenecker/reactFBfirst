@@ -20,9 +20,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text>Welcome</Text>
+
       </View>
     );
   }
@@ -36,3 +35,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+signup = async (email, pass) => {
+
+  try {
+    await firebase.auth()
+      .createUserWithEmailAndPassword(email, pass);
+    console.log("Account created");
+  } catch(error){
+    console.log(error.toString())
+  }
+}
+
+login = async(email, pass) => {
+
+  try {
+    await firebase.auth()
+      .signInWithEmailAndPassword(email,pass);
+    console.log("Logged In!");
+
+    //Navigate to homepage...
+  } catch (error) {
+    console.log(error.toString())
+  }
+
+}
+
+logout = async() => {
+  try{
+    await firebase.auth().signOut();
+
+    //Nav to login View
+
+  } catch (error) {
+    console.log(error);
+  }
+}
