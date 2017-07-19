@@ -1,7 +1,7 @@
 import React from 'react';
+import {Stylesheet, Text, View } from 'react-native';
 import * as firebase from "firebase";
-import { StyleSheet, Text, View } from 'react-native';
-
+const styles = require('./styles.js')
 
 /**
 *A beginners guide to building a React-Native & Firebase
@@ -66,30 +66,13 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Welcome</Text>
-
+        
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: .99,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'silver',
 
-  },
-  welcome: {
-    fontSize: 20,
-    color: 'red',
-    textAlign: 'center',
-    margin: 10,
-
-  },
-});
 
 
 
