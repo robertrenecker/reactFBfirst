@@ -3,6 +3,46 @@ import * as firebase from "firebase";
 import { StyleSheet, Text, View } from 'react-native';
 
 
+/**
+*A beginners guide to building a React-Native & Firebase
+*As of last update:
+*    Firebase Authentication
+*    User login, account creation, signout
+*    User Mobile number
+*
+*
+*
+*
+**/
+
+
+/**
+*We are incorporating new ES7 Async functions / Promise Functions
+*Read this article for reference on why they are useful in Javascript:
+  *https://www.twilio.com/blog/2015/10/asyncawait-the-hero-javascript-deserved.html
+**/
+
+
+
+
+class Database {
+  /**
+  * sets a user mobile number
+  * @param userId
+  * @param mobile
+  * @returns {firebase.Promise<any> | !firebase.Promise.<void>}
+  */
+
+  static setUserMobile(userId, mobile) {
+
+    let userMobilePath = "/user/" + userId + "/details";
+
+    return firebase.database().ref(userMobilePath).set({
+      mobile: mobile
+    })
+  }
+}
+
 const firebaseConfig = {
     apiKey: "AIzaSyAuB3_v1pUdRpahozmh0mvtr1THXaujvQc",
     authDomain: "firstapp-d78e7.firebaseapp.com",
@@ -14,6 +54,11 @@ const firebaseConfig = {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+
+var {
+  TextInput,
+  ListView
+} = React;
 
 
 export default class App extends React.Component {
@@ -29,13 +74,27 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: .99,
+    flexDirection: 'column',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'silver',
+
+  },
+  welcome: {
+    fontSize: 20,
+    color: 'red',
+    textAlign: 'center',
+    margin: 10,
+
   },
 });
 
+
+
+
+/**User Functions**/
 
 signup = async (email, pass) => {
 
