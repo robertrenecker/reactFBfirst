@@ -1,7 +1,10 @@
 import React from 'react';
-import {Stylesheet, Text, View } from 'react-native';
+import {AppRegistry, Stylesheet, Text, View } from 'react-native';
 import * as firebase from "firebase";
-const styles = require('./styles.js')
+import {StackNavigator} from 'react-navigation';
+const styles = require('./styles.js');
+
+
 
 /**
 *A beginners guide to building a React-Native & Firebase
@@ -21,6 +24,24 @@ const styles = require('./styles.js')
 *Read this article for reference on why they are useful in Javascript:
   *https://www.twilio.com/blog/2015/10/asyncawait-the-hero-javascript-deserved.html
 **/
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAuB3_v1pUdRpahozmh0mvtr1THXaujvQc",
+    authDomain: "firstapp-d78e7.firebaseapp.com",
+    databaseURL: "https://firstapp-d78e7.firebaseio.com",
+    projectId: "firstapp-d78e7",
+    storageBucket: "firstapp-d78e7.appspot.com",
+    messagingSenderId: "597561685388"
+  };
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+
+var {
+  TextInput,
+  ListView
+} = React;
+
 
 
 
@@ -43,34 +64,35 @@ class Database {
   }
 }
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAuB3_v1pUdRpahozmh0mvtr1THXaujvQc",
-    authDomain: "firstapp-d78e7.firebaseapp.com",
-    databaseURL: "https://firstapp-d78e7.firebaseio.com",
-    projectId: "firstapp-d78e7",
-    storageBucket: "firstapp-d78e7.appspot.com",
-    messagingSenderId: "597561685388"
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
   };
+  render(){
+    return <Text> Welcome! -  Home - </Text>;
+  }
+}
 
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
+const ourApp = StackNavigator({
+  Home: { screen: HomeScreen },
+});
 
+AppRegistry.registerComponent('ourApp', () => ourApp);
 
-var {
-  TextInput,
-  ListView
-} = React;
-
-
+export default ourApp;
+/**
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Welcome</Text>
-        
+
       </View>
     );
   }
 }
+
+**/
 
 
 
