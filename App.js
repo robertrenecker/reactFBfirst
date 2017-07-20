@@ -1,8 +1,9 @@
 import React from 'react';
 import {AppRegistry, Stylesheet, Text, View } from 'react-native';
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 import {StackNavigator} from 'react-navigation';
 const styles = require('./styles.js');
+import HomeScreen from './screens/HomeScreen';
 
 
 
@@ -64,41 +65,19 @@ class Database {
   }
 }
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render(){
-    return <Text> Welcome! -  Home - </Text>;
-  }
-}
-
 const ourApp = StackNavigator({
   Home: { screen: HomeScreen },
 });
-
 AppRegistry.registerComponent('ourApp', () => ourApp);
 
 export default ourApp;
-/**
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Welcome</Text>
-
-      </View>
-    );
-  }
-}
-
-**/
 
 
 
 
 
 
+/**              **/
 /**User Functions**/
 
 signup = async (email, pass) => {
