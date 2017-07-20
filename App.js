@@ -5,7 +5,10 @@ import {StackNavigator} from 'react-navigation';
 const styles = require('./styles.js');
 import HomeScreen from './screens/HomeScreen';
 
-
+/**
+*Author: Robert Renecker
+*Date Created: 7/6/16
+**/
 
 /**
 *A beginners guide to building a React-Native & Firebase

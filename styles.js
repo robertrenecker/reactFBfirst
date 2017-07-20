@@ -10,6 +10,12 @@ var styles = StyleSheet.create({
     flex: 1,
 
   },
+  title:{
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#333',
+  },
+
   listview: {
     flex: 1,
   },
@@ -42,7 +48,8 @@ var styles = StyleSheet.create({
   navbarTitle: {
     color: '#444',
     fontSize: 16,
-    fontWeight: "500"
+    fontWeight: "500",
+    
   },
   statusbar: {
     backgroundColor: '#fff',
